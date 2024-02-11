@@ -1,10 +1,15 @@
 import { graph, config } from '@grafbase/sdk'
+import { UserSchema } from './user';
+import { ProjectSchema } from './project';
 
 // Welcome to Grafbase!
 //
 // Configure authentication, data sources, resolvers and caching for your GraphQL API.
 
 const g = graph.Standalone()
+
+g.type('User', UserSchema);
+g.type('Project', ProjectSchema)
 
 // Data Sources - https://grafbase.com/docs/connectors
 //
