@@ -24,7 +24,7 @@ const User = g.model('User', {
   description: g.string().optional(),
   githubUrl: g.url().optional(),
   linkedUrl: g.url().optional(),
-  projects: g.relation(() => Project).list(),
+  projects: g.relation(() => Project).list().optional(),
 })
 
 const Project = g.model('Project', {
