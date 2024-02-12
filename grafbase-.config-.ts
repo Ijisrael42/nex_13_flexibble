@@ -1,4 +1,4 @@
-import { graph, config, auth } from '@grafbase/sdk'
+import { graph, config } from '@grafbase/sdk'
 
 // Welcome to Grafbase!
 //
@@ -17,12 +17,27 @@ const g = graph.Standalone()
 //   returns: g.string(),
 //   resolver: 'hello-world',
 // })
+
 const User = g.type('User', {
-  name: g.string()
+  name: g.string(),//.length({ min: 2, max: 20 }),
+  email: g.string(),//.unique(),
+  avatarUrl: g.url(),
+  description: g.string().optional(),
+  githubUrl: g.url().optional(),
+  linkedUrl: g.url().optional(),
+  // projects: g.ref(Project).list().optional(),
 })
-const provider = auth.OpenIDConnect({
-  issuer: 'https://nex13flexibble-main-ijisrael42.grafbase.app/graphql',
+
+const Project = g.type('Project', {
+  title: g.string(),//.length({ min: 3 }),
+  description: g.string(),
+  image: g.url(),
+  liveSiteUrl: g.url(),
+  githubUrl: g.url(),
+  category: g.string(),//.search(),
+  createdBy: g.ref(User)
 })
+
 export default config({
   graph: g,
   // Authentication - https://grafbase.com/docs/auth
@@ -33,7 +48,6 @@ export default config({
     rules: (rules) => {
       rules.public()
     },
-    providers: [provider]
   },
   // Caching - https://grafbase.com/docs/graphql-edge-caching
   // cache: {

@@ -13,7 +13,9 @@ pnpm dev
 # or
 bun dev
 ```
-
+# KEY=VALUE
+NEXT_PUBLIC_GRAFBASE_API_URL=https://nex13flexibble-main-ijisrael42.grafbase.app/graphql
+NEXT_PUBLIC_GRAFBASE_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDc2NjkzNDYsImlzcyI6ImdyYWZiYXNlIiwiYXVkIjoiMDFIUENHQ1BFMEtBTVE2S1hXWlBXUEU1MFAiLCJqdGkiOiIwMUhQQ0dDUEZGSjY4Uk1YU0NIN1pCUFFDMCIsImVudiI6InByZXZpZXciLCJwdXJwb3NlIjoicHJvamVjdC1hcGkta2V5In0.4q4zjZpa9VlHM-LBTm_s3fiJfb1jDTifsa-T_l4mWT8
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
