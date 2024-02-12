@@ -20,9 +20,6 @@ const projectArgs = {
   // createdBy: g.ref(User)
 };
 
-const project = g.type('Project', projectArgs);
-const user = g.type('User', userArgs);
-
 g.query('User', {
   args: userArgs,
   returns: g.string(),
