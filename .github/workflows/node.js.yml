@@ -1,0 +1,23 @@
+# .github/workflows/grafbase.yml
+# https://docs.github.com/en/actions/security-guides/encrypted-secrets
+
+name: Grafbase
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          cache: 'npm'
+      - name: Deploy
+        run: npx grafbase deploy
+        env:
+          GRAFBASE_ACCESS_TOKEN: ${{ secrets.GRAFBASE_ACCESS_TOKEN }}
